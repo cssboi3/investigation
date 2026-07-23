@@ -5,17 +5,6 @@ margin:20px;
 background-color: rgb(242,213,146);;
 text-align: center;
 }
-/* 
-#columns{
-    display:flex;
-    flex-wrap: wrap;
-    gap: 12px;
-}
-#columns label{
-display:flex;
-align-items:center;
-gap: 4px;
-} */
 
 #columns{
     display: grid;
