@@ -200,7 +200,17 @@ function downloadCSV() {
         type: "text/csv"
     });
 
-    const downloadLink = document.createElement("a");
+    const now = new Date();
+
+const fileName =
+    `IP_Analysis_${now.getFullYear()}-${
+    String(now.getMonth() + 1).padStart(2, "0")}-${
+    String(now.getDate()).padStart(2, "0")}_${
+    String(now.getHours()).padStart(2, "0")}-${
+    String(now.getMinutes()).padStart(2, "0")}-${
+    String(now.getSeconds()).padStart(2, "0")}.csv`;
+
+downloadLink.download = fileName;
 
     downloadLink.download = "IP_Analysis.csv";
     downloadLink.href = URL.createObjectURL(csvFile);
