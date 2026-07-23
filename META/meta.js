@@ -212,7 +212,7 @@ const fileName =
 const downloadLink = document.createElement("a");
 downloadLink.download = fileName;
 
-    downloadLink.download = "IP_Analysis.csv";
+
     downloadLink.href = URL.createObjectURL(csvFile);
 
     document.body.appendChild(downloadLink);
