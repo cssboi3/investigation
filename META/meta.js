@@ -137,7 +137,7 @@ blocks.forEach(block => {
             srNo: records.length + 1,
             ip: ip,
             port: port,
-            time: time || "Not Found"
+           time: time ? utcToIST(time) : "Not Found"
         });
 
     }
