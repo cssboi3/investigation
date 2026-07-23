@@ -7,6 +7,22 @@ const fileInput = document.getElementById("pdfFile");
 const output = document.getElementById("output");
 const button = document.getElementById("extractBtn");
 
+
+function utcToIST(utcTime) {
+
+    const date = new Date(utcTime.replace(" UTC", "Z"));
+
+    return date.toLocaleString("en-GB", {
+        timeZone: "Asia/Kolkata",
+        day: "2-digit",
+        month: "2-digit",
+        year: "numeric",
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit",
+        hour12: false
+    }) + " IST";
+}
 button.onclick = async () => {
 
     const file = fileInput.files[0];
