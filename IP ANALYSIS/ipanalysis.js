@@ -131,9 +131,10 @@ let bounds =[];
 
     });
     if(bounds.length>0){
-    map.fitBounds(bounds);
+    if(document.getElementById("mapContainer").style.display !== "none"){
+        map.fitBounds(bounds);
+    }
 }
-
     output += "</table>";
 
     document.getElementById("result").innerHTML = output;
@@ -145,6 +146,30 @@ let map = L.map('map').setView([20.5937,78.9629],5);
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{
     attribution:'© OpenStreetMap'
 }).addTo(map);
+
+let mapOpened = false;
+
+function toggleMap() {
+    const container = document.getElementById("mapContainer");
+    const btn = document.getElementById("toggleMapBtn");
+
+    if (container.style.display === "none") {
+        container.style.display = "block";
+        btn.innerHTML = "❌ Hide Map";
+
+        setTimeout(() => {
+            map.invalidateSize();
+            if (map.getBounds().isValid()) {
+                map.fitBounds(map.getBounds());
+            }
+        }, 100);
+
+        mapOpened = true;
+    } else {
+        container.style.display = "none";
+        btn.innerHTML = "🗺️ Show Map";
+    }
+}
 
 
 function exportExcel(){
