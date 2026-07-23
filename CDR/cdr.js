@@ -32,8 +32,10 @@ let cols = Object.keys(jsonData[0]);
 let html="";
 
 let dateSelect=document.getElementById("dateColumn");
+let timeSelect=document.getElementById("timeColumn");
 
 dateSelect.innerHTML="";
+timeSelect.innerHTML="";
 
 cols.forEach(col=>{
 
@@ -45,6 +47,7 @@ ${col}
 `;
 
 dateSelect.innerHTML+=`<option value="${col}">${col}</option>`;
+timeSelect.innerHTML+=`<option value="${col}">${col}</option>`;
 
 });
 
@@ -80,6 +83,39 @@ function parseDate(value) {
 
     return new Date(value);
 }
+
+function parseTime(value){
+
+    if(!value) return null;
+
+    value=value.toString().trim();
+
+    if(/^\d{1,2}:\d{2}$/.test(value))
+        value+=":00";
+
+    if(/^\d{1,2}:\d{2}:\d{2}$/.test(value)){
+        let [h,m,s]=value.split(":").map(Number);
+        return h*3600+m*60+s;
+    }
+
+    let match=value.match(/^(\d{1,2}):(\d{2})(?::(\d{2}))?\s*(AM|PM)$/i);
+
+    if(match){
+        let h=parseInt(match[1]);
+        let m=parseInt(match[2]);
+        let s=parseInt(match[3]||0);
+
+        if(/PM/i.test(match[4]) && h!=12) h+=12;
+        if(/AM/i.test(match[4]) && h==12) h=0;
+
+        return h*3600+m*60+s;
+    }
+
+    return null;
+}
+
+
+
 function loadDates() {
 
     let dateCol = document.getElementById("dateColumn").value;
@@ -120,6 +156,13 @@ selected.push(c.value);
 });
 
 let dateCol=document.getElementById("dateColumn").value;
+let timeCol=document.getElementById("timeColumn").value;
+
+let fromTime=document.getElementById("fromTime").value;
+
+let toTime=document.getElementById("toTime").value;
+
+
 
 let from=document.getElementById("fromDate").value;
 
@@ -128,6 +171,14 @@ let to=document.getElementById("toDate").value;
 filteredData=jsonData.filter(r=>{
 
 let d = parseDate(r[dateCol]);
+let rowTime = parseTime(r[timeCol]);
+
+let fromSec = fromTime ? parseTime(fromTime) : null;
+
+let toSec = toTime ? parseTime(toTime) : null;
+
+
+
 
 let fromDate = from ? new Date(from) : null;
 let toDate = to ? new Date(to) : null;
@@ -143,6 +194,11 @@ if (toDate)
 
 if (fromDate && d < fromDate) return false;
 if (toDate && d > toDate) return false;
+
+if (fromSec !== null && rowTime < fromSec) return false;
+if (toSec !== null && rowTime > toSec) return false;
+
+
 
 return true;
 });
