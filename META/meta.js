@@ -78,35 +78,61 @@ button.onclick = async () => {
 // =====================
 // Create IP Records
 // =====================
+// =====================
+// Create IP Records (Block Extraction)
+// =====================
 
 const records = [];
 
-for (let i = 0; i < ipv4List.length; i++) {
+// PDF ko "IP Address" ke basis par blocks me divide karo
+const blocks = completeText.split(/(?=IP\s*Address)/i);
 
-    let fullIp = ipv4List[i];
+blocks.forEach(block => {
 
-    let ip = fullIp;
+    let ip = "";
     let port = "";
+    let time = "";
 
-    if (fullIp.includes(":")) {
-        const parts = fullIp.split(":");
-        ip = parts[0];
-        port = parts[1];
+    // IPv4
+    let ipv4 = block.match(/((?:\d{1,3}\.){3}\d{1,3}):(\d+)/);
+
+    // IPv6 (Facebook format)
+    let ipv6 = block.match(/\[([A-Fa-f0-9:]+)\]:(\d+)/);
+
+    if (ipv4) {
+        ip = ipv4[1];
+        port = ipv4[2];
+    }
+    else if (ipv6) {
+        ip = ipv6[1];
+        port = ipv6[2];
     }
 
-    records.push({
-        srNo: i + 1,
-        ip: ip,
-        port: port,
-        time: timeList[i] || "Not Found"
-    });
-    
+    // UTC Time
+    let t = block.match(/\d{4}-\d{2}-\d{2}\s\d{2}:\d{2}:\d{2}\sUTC/);
 
-}
+    if (t) {
+        time = t[0];
+    }
+
+    if (ip !== "") {
+
+        records.push({
+            srNo: records.length + 1,
+            ip: ip,
+            port: port,
+            time: time || "Not Found"
+        });
+
+    }
+
+});
 
 console.log("IP Records");
 console.table(records);
-localStorage.setItem("metaCount" , records.length)
+
+localStorage.setItem("metaCount", records.length);
+
 
 // =====================
 // Show Records in Table
