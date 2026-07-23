@@ -1,0 +1,63 @@
+#ip{
+    width: 500px;
+    height: 200px;
+    padding: 10px;
+    font: size 16px;;
+}
+.ipanalysis{
+    background-color:rgb(242,213,146); ;
+}
+.ipaddress{
+    text-align: center;
+    
+}
+.ipbutton{
+    width: 100px;
+    height: 40px;
+    font-size: 20px;
+    cursor: pointer;
+}
+.ipbutton:hover{
+    background-color:aqua;
+}
+#result{
+
+    table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:20px;
+    color:white;
+}
+
+th{
+    background:#00bfff;
+    color:white;
+    padding:12px;
+}
+
+td{
+    background:#1e1e1e;
+    padding:10px;
+    text-align:center;
+}
+
+tr:nth-child(even){
+    background:#2b2b2b;
+}
+
+table,th,td{
+    border:1px solid #00bfff;
+}
+}
+
+#map{
+    width:500px;
+    height:500px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    margin-top:20px;
+    border-radius:10px;
+    
+}
+

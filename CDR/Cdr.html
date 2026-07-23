@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>CDR/IPDR Filter Tool</title>
+
+<link rel="stylesheet" href="cdr.css">
+
+<script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
+
+
+</head>
+
+<body>
+
+<h2>CDR/IPDR Filtration Tool</h2>
+
+<input type="file" id="excelFile" accept=".xlsx,.xls" multiple>
+
+<div id="columns"></div>
+
+<br>
+
+Date Column:
+<select id="dateColumn"></select>
+
+<br><br>
+
+<input list="fromDates" id="fromDate" placeholder="From Date">
+<datalist id="fromDates"></datalist>
+
+<input list="toDates" id="toDate" placeholder="To Date">
+<datalist id="toDates"></datalist><br><br>
+
+<button onclick="filterData()">Filter</button>
+
+<button onclick="downloadExcel()">Download Excel</button>
+
+<div id="output"></div>
+
+<script src="cdr.js"></script>
+
+</body>
+</html>

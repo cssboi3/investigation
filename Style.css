@@ -1,0 +1,126 @@
+.main-body{
+    background-image:url("IMAGES/mysterious-investigation.jpg");
+    background-repeat: no repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    min-height: 100vh;
+}
+#header{
+text-align: center;
+color:rgb(242,213,146);
+height: 40px;
+}
+.footer{
+
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: black;
+    color:white;
+    text-align: center;
+    padding: 15px;
+}
+nav a{
+text-decoration: none;
+color:white;
+background-color:black;
+margin-left: 75px;
+font-size: 25px;
+}
+nav a:hover{
+    background-color:aqua;
+}
+nav {
+    margin-top: 30px;
+}
+.fa-house {
+    color:rgb(242,213,146);
+
+}
+
+.fa-globe
+{
+    color:rgb(242,213,146);
+
+}.fa-phone
+{
+    color:rgb(242,213,146);
+
+
+} .fa-filter
+{
+    color:rgb(242,213,146);
+
+} 
+.fa-chart-line
+{
+    color:rgb(242,213,146);
+
+}
+/*.welcome-box button{
+    margin-top:20px;
+    padding:10px 25px;
+    background:#00bfff;
+    color:white;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+}
+.welcome-box{text-align: center;
+color: white;}
+
+contact us*/
+#contactus{
+    position: relative;
+    display: inline-block;
+
+}
+.contactdropdown {display: none;
+position:absolute;
+background-color: rgb(242,213,146);
+min-width: 250px;
+border-radius: 8px;
+padding: 10px;}
+
+#contactus:hover .contactdropdown {
+    
+    display: block;
+
+}
+/* datetime */
+.dateTime{
+    color:white;
+    text-align:left;
+    padding:10px 20px;
+    width: 350px;
+}
+
+.date,
+.time{
+    margin:6px 0;
+    font-size:18px;
+    font-weight:bold;
+}
+
+.date i,
+.time i{
+    color:orange;
+    margin-right:10px;
+    font-size:20px;
+}
+
+.time{
+    color:#FFD700;
+}
+header{display: flex;}
+
+.logoutit{
+    margin-left: 300px;
+}
+
+
+
+
+

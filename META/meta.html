@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>META Extractor</title>
+ <link rel="stylesheet" href="metastyle.css">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+
+
+</head>
+<body>
+
+<h2>META PDF Reader</h2>
+
+<input type="file" id="pdfFile" accept=".pdf">
+
+<button id="extractBtn">
+Extract Text
+</button>
+
+<textarea id="output"></textarea>
+<h2>IP Analysis</h2>
+<button id="downloadBtn">Download Excel</button>
+<table border="1" id="resultTable" cellpadding="8" cellspacing="0">
+    <thead>
+        <tr>
+            <th>Sr No</th>
+            <th>IP Address</th>
+            <th>Port</th>
+            <th>Time (UTC)</th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+    </tbody>
+
+</table>
+<script src="meta.js"></script>
+
+</body>
+</html>

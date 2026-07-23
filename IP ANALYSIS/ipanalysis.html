@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IP Analysis</title>
+     <link rel="stylesheet" href="ipanalysis.css">
+     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+</head>
+<body class="ipanalysis">
+    <div class="ipaddress">
+    <h2><label>Enter IP Addresses</label></h2>
+    <textarea id="ip" placeholder="Enter one IP per line"></textarea>
+    <br>
+    <h3><button class="ipbutton" onclick="analyzeIP()">
+        Analyze
+    </button>
+    </h3>
+    </div>
+    <div id="map"></div>
+
+    <button onclick="exportExcel()">Export to Excel</button>
+        <div id="result"></div>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="https://cdn.sheetjs.com/xlsx-0.20.2/package/dist/xlsx.full.min.js"></script>
+    <script src="ipanalysis.js"></script>
+    
+    
+</body>
+</html>
