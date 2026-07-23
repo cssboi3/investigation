@@ -17,8 +17,14 @@
     </button>
     </h3>
     </div>
-    <div id="map"></div>
+    
+    <button id="toggleMapBtn" onclick="toggleMap()">
+    🗺️ Show Map
+</button>
 
+<div id="mapContainer" style="display:none;">
+    <div id="map"></div>
+</div>
     <button onclick="exportExcel()">Export to Excel</button>
         <div id="result"></div>
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
