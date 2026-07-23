@@ -5,9 +5,47 @@ margin:20px;
 background-color: rgb(242,213,146);;
 text-align: center;
 }
-#columns label{
-display:block;
+/* 
+#columns{
+    display:flex;
+    flex-wrap: wrap;
+    gap: 12px;
 }
+#columns label{
+display:flex;
+align-items:center;
+gap: 4px;
+} */
+
+#columns{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 10px;
+    margin-top: 10px;
+}
+
+#columns label{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background: #f8f9fa;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+#columns label:hover{
+    background: #eaf4ff;
+    border-color: #007bff;
+}
+
+#columns input{
+    transform: scale(1.1);
+}
+ 
+
 table{
 border-collapse:collapse;
 margin-top:20px;
