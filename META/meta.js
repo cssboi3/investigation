@@ -209,7 +209,7 @@ const fileName =
     String(now.getHours()).padStart(2, "0")}-${
     String(now.getMinutes()).padStart(2, "0")}-${
     String(now.getSeconds()).padStart(2, "0")}.csv`;
-
+const downloadLink = document.createElement("a");
 downloadLink.download = fileName;
 
     downloadLink.download = "IP_Analysis.csv";
