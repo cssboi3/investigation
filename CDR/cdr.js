@@ -233,7 +233,7 @@ localStorage.setItem("cdrCount" , filteredData.length);
 function downloadExcel(){
 
     if(filteredData.length === 0){
-        alert("Firsy filter Data.");
+        alert("First filter Data.");
         return;
     }
 
