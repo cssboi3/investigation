@@ -17,7 +17,7 @@ jsonData = XLSX.utils.sheet_to_json(sheet);
 
 
 showColumns();
-loaddates();
+loadDates();
 loadTimes();
 
 };
