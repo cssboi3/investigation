@@ -18,40 +18,12 @@ jsonData = XLSX.utils.sheet_to_json(sheet);
 
 showColumns();
 loadDates();
-loadTimes();
 
 };
 
 reader.readAsBinaryString(e.target.files[0]);
 
 });
-
-function loadTimes() {
-
-    let timeCol = document.getElementById("timeColumn").value;
-    if (!timeCol) return;
-
-    let times = [];
-
-    jsonData.forEach(row => {
-        let t = row[timeCol];
-        if (t) times.push(t.toString().trim());
-    });
-
-    times = [...new Set(times)].sort();
-
-    let from = document.getElementById("fromTime");
-    let to = document.getElementById("toTime");
-
-    from.innerHTML = '<option value="">From Time</option>';
-    to.innerHTML = '<option value="">To Time</option>';
-
-    times.forEach(time => {
-        from.innerHTML += `<option value="${time}">${time}</option>`;
-        to.innerHTML += `<option value="${time}">${time}</option>`;
-    });
-}
-
 
 
 function showColumns(){
