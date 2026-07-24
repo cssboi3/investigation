@@ -27,18 +27,20 @@ button.onclick = async () => {
 
     const file = fileInput.files[0];
 
-    if (!file) {
-        alert("Select PDF");
-        return;
-    }
+if (!file) {
+    alert("Select PDF or HTML");
+    return;
+}
+
+let completeText = "";
+
+if (file.name.toLowerCase().endsWith(".pdf")) {
 
     const arrayBuffer = await file.arrayBuffer();
 
     const pdf = await pdfjsLib.getDocument({
         data: arrayBuffer
     }).promise;
-
-    let completeText = "";
 
     for (let pageNo = 1; pageNo <= pdf.numPages; pageNo++) {
 
@@ -54,6 +56,27 @@ button.onclick = async () => {
         completeText += pageText;
     }
 
+}
+else if (
+    file.name.toLowerCase().endsWith(".html") ||
+    file.name.toLowerCase().endsWith(".htm")
+) {
+
+    const html = await file.text();
+
+    const parser = new DOMParser();
+
+    const doc = parser.parseFromString(html, "text/html");
+
+    completeText = doc.body.innerText;
+
+}
+else {
+
+    alert("Only PDF or HTML files are allowed.");
+
+    return;
+}
     output.value = completeText;
 
     // =====================
