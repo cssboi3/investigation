@@ -146,7 +146,6 @@ dates.forEach(date => {
 }
 
 document.getElementById("dateColumn").addEventListener("change", loadDates);
-document.getElementById("timeColumn").addEventListener("change", loadTimes);
 
 
 function filterData(){
